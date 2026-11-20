@@ -5,6 +5,7 @@ const cloud = (() => {
   const enabled = web && new URLSearchParams(location.search).get('local') !== '1';
   const preferences = ['dayW', 'weekend', 'today', 'orient', 'theme', 'panelW', 'labelW', 'ownerW'];
   const prefsKey = 'gantt-studio-display-v1';
+  const activeProjectKey = 'gantt-studio-active-project-v1';
   let client;
   let authorized = false;
   let busy = false;
@@ -52,9 +53,15 @@ const cloud = (() => {
   function updateControls() {
     $('.layout').inert = !authorized || busy;
     $('#libModal').inert = !authorized || busy;
-    $('#cloudPanel').hidden = authorized;
-    $('#cloudLogin').hidden = !client || authorized;
-    $('#cloudLogin').querySelector('button').disabled = busy;
+    const panel = $('#cloudPanel');
+    const form = $('#cloudLogin');
+    const showForm = !!client && !authorized;
+    const focusLogin = showForm && (form.hidden || !panel.open);
+    form.hidden = !showForm;
+    form.querySelector('button').disabled = busy;
+    if (authorized && panel.open) panel.close();
+    if (!authorized && !panel.open) panel.showModal();
+    if (focusLogin) $('#cloudEmail').focus();
     $('#cloudLogout').hidden = !authorized;
     $('#cloudLogout').disabled = busy;
     for (const id of ['btnPdf', 'btnJpg', 'btnXlsx']) {
@@ -71,9 +78,21 @@ const cloud = (() => {
     baseline = JSON.stringify(payload());
     pendingCreate = null;
     status = '';
+    rememberProject(state.id);
     closeColorPop();
     hideTip();
     syncControls();
+  }
+
+  function rememberProject(id) {
+    try {
+      if (id) sessionStorage.setItem(activeProjectKey, id);
+      else sessionStorage.removeItem(activeProjectKey);
+    } catch {}
+  }
+
+  function rememberedProject() {
+    try { return sessionStorage.getItem(activeProjectKey); } catch { return null; }
   }
 
   function confirmDiscard() {
@@ -89,6 +108,7 @@ const cloud = (() => {
     const check = accountCheck;
     busy = true;
     if (saving) status = '儲存中…';
+    if (!requireLogin) $('#cloudMessage').textContent = '正在登入…';
     closeColorPop();
     updateControls();
     try {
@@ -96,7 +116,9 @@ const cloud = (() => {
     } catch (error) {
       const message = error.message || '無法連線，請稍後再試';
       if (saving && check === accountCheck) status = '儲存失敗';
-      toast(action + '失敗：' + message);
+      const feedback = action + '失敗：' + message;
+      if (requireLogin) toast(feedback);
+      else $('#cloudMessage').textContent = feedback;
     } finally {
       busy = false;
       updateControls();
@@ -196,16 +218,24 @@ const cloud = (() => {
     return run('載入專案庫', refreshLibrary);
   }
 
+  async function fetchProject(id) {
+    return unwrap(await client.from('gantt_projects').select().eq('id', id).maybeSingle());
+  }
+
+  function loadProject(row) {
+    validateProject(row.payload);
+    const next = normalizeState({ ...row.payload, ui: state.ui });
+    next.ui.selectedId = null;
+    loadEditor(next, row);
+  }
+
   function openProject(id) {
     if (!canEdit() || !confirmDiscard()) return;
     return run('開啟專案', async stillAuthorized => {
-      const row = unwrap(await client.from('gantt_projects').select().eq('id', id).maybeSingle());
+      const row = await fetchProject(id);
       if (!stillAuthorized()) return;
       if (!row) throw new Error('此專案已不存在，請重新開啟專案庫');
-      validateProject(row.payload);
-      const next = normalizeState({ ...row.payload, ui: state.ui });
-      next.ui.selectedId = null;
-      loadEditor(next, row);
+      loadProject(row);
       closeLibrary();
       toast('已開啟「' + state.project + '」');
     });
@@ -223,6 +253,7 @@ const cloud = (() => {
         revision = null;
         baseline = '';
         status = '';
+        rememberProject(null);
       }
       toast(deleted ? '已刪除雲端專案' : '專案已更新或刪除，請確認最新清單');
       await refreshLibrary(stillAuthorized);
@@ -272,6 +303,21 @@ const cloud = (() => {
       await client.auth.signOut({ scope: 'local' });
       throw new Error(allowed.error?.message || '這個帳號未獲授權使用專案庫');
     }
+    const lastProject = rememberedProject();
+    if (lastProject) {
+      try {
+        const row = await fetchProject(lastProject);
+        if (check !== accountCheck) return;
+        if (row) loadProject(row);
+        else {
+          rememberProject(null);
+          toast('上次開啟的專案已不存在。請從「開啟專案」查看清單。');
+        }
+      } catch {
+        if (check !== accountCheck) return;
+        toast('無法載入上次開啟的專案。請從「開啟專案」重試。');
+      }
+    }
     authorized = true;
     updateControls();
   }
@@ -288,8 +334,7 @@ const cloud = (() => {
 
   async function init() {
     const message = $('#cloudMessage');
-    $('#projectStorageHint').textContent = '專案儲存在共用專案庫。也可匯入或匯出專案 JSON。';
-    $('#editStorageHint').textContent = '編輯完成後，請按「儲存」同步到雲端。';
+    $('#cloudPanel').addEventListener('cancel', event => event.preventDefault());
     $('#libraryStorageHint').textContent = 'Supabase 共用專案庫';
     baseline = JSON.stringify(payload());
     updateControls();

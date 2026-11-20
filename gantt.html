@@ -435,9 +435,25 @@
   /* 專案清單視窗 */
   .modal{position:fixed;inset:0;background:var(--overlay);z-index:90;display:grid;place-items:center;padding:20px}
   .modal[hidden]{display:none}
-  #cloudPanel{margin:8px 12px}
-  #cloudLogin{display:flex;align-items:end;gap:8px;flex-wrap:wrap}
+  body:has(#cloudPanel[open]){overflow:hidden}
+  #cloudPanel{
+    position:fixed;inset:0;width:100%;height:100vh;height:100dvh;
+    max-width:none;max-height:none;margin:0;border:0;padding:24px;
+    overflow:auto;background:var(--bg);color:var(--text);
+  }
+  #cloudPanel[open]{display:flex}
+  .cloud-card{
+    width:min(100%, 420px);margin:auto;padding:clamp(20px, 5vw, 32px);
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    box-shadow:0 12px 32px rgba(15,23,42,.12);
+  }
+  .cloud-card h1{margin:0;font-size:20px}
+  #cloudMessage{margin:12px 0 0;color:var(--text);line-height:1.5;overflow-wrap:anywhere}
+  #cloudLogin{display:grid;gap:14px;margin-top:20px}
   #cloudLogin[hidden]{display:none}
+  #cloudLogin .field + .field{margin:0}
+  #cloudLogin .field > span{font-size:13px}
+  #cloudLogin input,#cloudLogin button{min-height:42px;font-size:16px}
   #cloudLogout[hidden]{display:none}
   .modal-card{
     width:min(560px,100%);max-height:78vh;background:var(--surface);border-radius:14px;
@@ -512,8 +528,9 @@
   <button class="btn" id="cloudLogout" type="button" hidden>登出</button>
 </header>
 
-<section class="pcard" id="cloudPanel" hidden>
-  <div class="pcard-body">
+<dialog id="cloudPanel" aria-labelledby="cloudTitle" aria-describedby="cloudMessage">
+  <div class="cloud-card">
+    <h1 id="cloudTitle">登入專案甘特圖</h1>
     <p id="cloudMessage" role="status"></p>
     <form id="cloudLogin" hidden>
       <label class="field"><span>共用帳號（電子郵件）</span><input id="cloudEmail" type="email" autocomplete="username" required></label>
@@ -521,7 +538,7 @@
       <button class="btn primary" type="submit">登入</button>
     </form>
   </div>
-</section>
+</dialog>
 
 <main class="layout">
   <aside class="panel">
@@ -544,7 +561,6 @@
           <input id="fileImport" type="file" accept=".json,application/json" hidden>
         </div>
         <p class="hint" id="storageWarn" hidden>⚠ 此瀏覽器無法寫入本機儲存空間，專案只會保留在本次瀏覽。請改用「匯出專案檔」備份，或以 http://localhost 開啟本頁。</p>
-        <p class="hint" id="projectStorageHint">本機專案庫綁定目前的瀏覽器及開啟網址。可用專案 JSON 搬移資料。</p>
       </div>
     </section>
 
@@ -561,7 +577,6 @@
             <input id="projStart" type="date">
           </label>
         </div>
-        <p class="hint">時間軸自動涵蓋專案開始日與任務日期；每週從星期一開始，並標示 ISO 週次。</p>
       </div>
     </section>
 
@@ -575,7 +590,6 @@
       </div>
       <div class="pcard-body">
         <div id="taskList"></div>
-        <p class="hint" style="margin:10px 2px 0">點任務列可展開／收合完整欄位，左側色塊可選 24 色。「前置任務」設定先後順序：前一項完成後，下一項才能開始；調整前一項的日期時，後續任務會一起提前或延後。點連結上的 ✕ 即可解除。</p>
       </div>
     </section>
 
@@ -583,7 +597,6 @@
       <div class="pcard-body" style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="btn tiny ghost" id="btnDemo" type="button">載入範例</button>
         <button class="btn tiny ghost" id="btnClear" type="button">清空任務</button>
-        <span class="hint" id="editStorageHint" style="margin:0;flex:1;min-width:130px">資料自動儲存在此瀏覽器。</span>
       </div>
     </section>
   </aside>
