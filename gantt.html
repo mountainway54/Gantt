@@ -178,14 +178,14 @@
   .brand .mark{
     width:24px;height:24px;border-radius:7px;
     background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800;
+    display:grid;place-items:center;color:#fff;font-size:13px;font-weight:800;
     box-shadow:0 2px 6px color-mix(in srgb, var(--accent) 40%, transparent);
   }
-  .brand small{display:block;font-weight:500;font-size:10.5px;color:var(--muted-2);letter-spacing:0}
+  .brand small{display:block;font-weight:500;font-size:13px;color:var(--muted-2);letter-spacing:0}
   .spacer{flex:1}
   .btn{
     height:32px;padding:0 12px;border-radius:8px;border:1px solid var(--line-2);
-    background:var(--surface);color:var(--text-2);font-size:12.5px;font-weight:600;cursor:pointer;
+    background:var(--surface);color:var(--text-2);font-size:13px;font-weight:600;cursor:pointer;
     display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
     transition:background .14s,border-color .14s,transform .06s,box-shadow .14s;
   }
@@ -195,14 +195,14 @@
   .btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
   .btn.ghost{border-color:transparent;background:transparent;color:var(--text-2)}
   .btn.ghost:hover{background:var(--surface-3)}
-  .btn.tiny{height:26px;padding:0 9px;font-size:11.5px;border-radius:6px}
+  .btn.tiny{height:26px;padding:0 9px;font-size:13px;border-radius:6px}
   .seg{display:inline-flex;background:var(--surface-3);border:1px solid var(--line);border-radius:9px;padding:3px;gap:2px}
   .seg button{
     height:26px;padding:0 11px;border:0;border-radius:6px;background:transparent;
-    color:var(--muted);font-size:11.5px;font-weight:600;cursor:pointer;
+    color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;
   }
   .seg button.active{background:var(--surface);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.18)}
-  .orient-label{font-size:11px;color:var(--muted-2);margin-right:-2px}
+  .orient-label{font-size:13px;color:var(--muted-2);margin-right:-2px}
   .appbar-group{display:flex;align-items:center;gap:8px;flex:none}
 
   /* 主題選擇 */
@@ -248,35 +248,35 @@
   .pcard-head{
     display:flex;align-items:center;gap:7px;padding:8px 11px;border-bottom:1px solid var(--line-soft);
   }
-  .pcard-head h2{margin:0;font-size:12px;font-weight:700;letter-spacing:.2px;color:var(--text)}
+  .pcard-head h2{margin:0;font-size:13px;font-weight:700;letter-spacing:.2px;color:var(--text)}
   .pcard-head .count{
-    font-size:10px;color:var(--muted);background:var(--surface-3);border-radius:999px;padding:1px 7px;font-weight:600;
+    font-size:13px;color:var(--muted);background:var(--surface-3);border-radius:999px;padding:1px 7px;font-weight:600;
   }
   .pcard-body{padding:10px 11px}
   .field{display:flex;flex-direction:column;gap:3px}
   .field + .field{margin-top:8px}
-  .field > span{font-size:10px;font-weight:600;color:var(--muted-2);letter-spacing:.3px}
+  .field > span{font-size:13px;font-weight:600;color:var(--muted-2);letter-spacing:.3px}
   input,select{
     width:100%;height:28px;border:1px solid var(--line-2);border-radius:7px;background:var(--surface);
-    padding:0 8px;font-size:12px;color:var(--text);font-family:inherit;outline:none;
+    padding:0 8px;font-size:13px;color:var(--text);font-family:inherit;outline:none;
     transition:border-color .12s,box-shadow .12s;
   }
-  input[type=date]{padding:0 5px;font-size:11.5px}
+  input[type=date]{padding:0 5px;font-size:13px}
   input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 16%, transparent)}
   input::placeholder{color:var(--muted-3)}
   .field-row{display:grid;gap:6px}
   .field-row.c3{grid-template-columns:1fr .95fr .95fr}
   .field-row.c2{grid-template-columns:1fr 1fr}
   .field-row .field + .field{margin-top:0}
-  .hint{font-size:10.5px;color:var(--muted-2);line-height:1.5;margin-top:7px}
+  .hint{font-size:13px;color:var(--muted-2);line-height:1.5;margin-top:7px}
   .hint.warn{color:var(--danger);font-weight:600}
 
   /* 專案存檔 */
   .save-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-  .save-actions .btn{height:28px;padding:0 6px;justify-content:center;font-size:11.5px}
+  .save-actions .btn{height:28px;padding:0 6px;justify-content:center;font-size:13px}
   .save-actions.sub{grid-template-columns:1fr 1fr;margin-top:6px}
   .save-actions.sub.three{grid-template-columns:repeat(3,1fr)}
-  .save-state{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;color:var(--muted-2);font-weight:600;white-space:nowrap}
+  .save-state{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--muted-2);font-weight:600;white-space:nowrap}
   .save-state .dot{width:6px;height:6px;border-radius:50%;background:var(--scrollbar)}
   .save-state.saved{color:var(--ok)}
   .save-state.saved .dot{background:var(--ok)}
@@ -295,22 +295,22 @@
   }
   .swatch:hover{box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--text) 22%, transparent),0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent)}
   .swatch:focus-visible{outline:none;box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--text) 22%, transparent),0 0 0 3px color-mix(in srgb, var(--accent) 40%, transparent)}
-  .task-top .name{flex:1;min-width:0;height:26px;font-weight:700;font-size:12px;border-color:transparent;background:var(--surface-2);padding:0 7px}
+  .task-top .name{flex:1;min-width:0;height:26px;font-weight:700;font-size:13px;border-color:transparent;background:var(--surface-2);padding:0 7px}
   .task-top .name:focus{background:var(--surface)}
   .dur-badge{
-    flex:none;font-size:10px;font-weight:700;color:var(--text-2);background:var(--surface-3);
+    flex:none;font-size:13px;font-weight:700;color:var(--text-2);background:var(--surface-3);
     border-radius:999px;padding:1px 7px;white-space:nowrap;
   }
   .iconbtn{
     flex:none;width:21px;height:21px;border:0;border-radius:5px;background:transparent;color:var(--muted-2);
-    cursor:pointer;display:grid;place-items:center;font-size:11px;line-height:1;padding:0;
+    cursor:pointer;display:grid;place-items:center;font-size:13px;line-height:1;padding:0;
   }
   .iconbtn:hover{background:var(--surface-3);color:var(--text-2)}
   .iconbtn.danger:hover{background:var(--danger-soft);color:var(--danger)}
-  .iconbtn.toggle{color:var(--muted);font-size:10px}
+  .iconbtn.toggle{color:var(--muted);font-size:13px}
   /* 收合時的摘要列 */
   .task-mini{
-    display:flex;align-items:center;gap:5px;margin:4px 2px 0;font-size:10.5px;color:var(--muted-2);
+    display:flex;align-items:center;gap:5px;margin:4px 2px 0;font-size:13px;color:var(--muted-2);
     white-space:nowrap;overflow:hidden;line-height:1.3;
   }
   .task-mini > span{flex:none}
@@ -324,10 +324,10 @@
   .task-item.open .task-body{display:block}
   .task-body .field-row.c3{grid-template-columns:1.02fr .99fr .99fr}
   .style-row{display:grid;grid-template-columns:30px 1fr 86px;gap:6px;align-items:end;margin-top:7px}
-  .style-row .field > span{font-size:9.5px}
+  .style-row .field > span{font-size:13px}
   .style-row input[type=range]{height:28px;padding:0;border:0;background:transparent;box-shadow:none;accent-color:var(--accent)}
   .style-row input[type=range]:focus{box-shadow:none}
-  .style-row select{font-size:11.5px;height:28px;padding:0 4px}
+  .style-row select{font-size:13px;height:28px;padding:0 4px}
   .color-btn{
     width:30px;height:28px;border:1px solid var(--line-2);border-radius:7px;background:var(--surface);
     cursor:pointer;display:grid;place-items:center;padding:0;
@@ -347,7 +347,7 @@
     to{opacity:1;transform:none}
   }
   .color-pop[hidden]{display:none}
-  .color-pop-title{font-size:9.5px;font-weight:700;color:var(--muted-2);letter-spacing:.4px;margin:0 0 7px 1px}
+  .color-pop-title{font-size:13px;font-weight:700;color:var(--muted-2);letter-spacing:.4px;margin:0 0 7px 1px}
   .color-pop-grid{display:grid;grid-template-columns:repeat(6,22px);gap:6px}
   .color-pop-grid button{
     width:22px;height:22px;padding:0;border:0;border-radius:6px;cursor:pointer;
@@ -362,26 +362,26 @@
   /* 前置任務（相依） */
   .dep-block{margin-top:7px;border-top:1px dashed var(--line-soft);padding-top:7px}
   .dep-head{display:flex;align-items:center;gap:6px;margin-bottom:5px}
-  .dep-title{font-size:9.5px;font-weight:600;color:var(--muted-2);letter-spacing:.3px}
-  .dep-count{font-size:9px;color:var(--muted);background:var(--surface-3);border-radius:999px;padding:0 6px;font-weight:700}
+  .dep-title{font-size:13px;font-weight:600;color:var(--muted-2);letter-spacing:.3px}
+  .dep-count{font-size:13px;color:var(--muted);background:var(--surface-3);border-radius:999px;padding:0 6px;font-weight:700}
   .dep-chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px}
-  .dep-none{font-size:10.5px;color:var(--muted-3)}
+  .dep-none{font-size:13px;color:var(--muted-3)}
   .dep-chip{
     display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 3px 0 6px;
     background:var(--surface-2);border:1px solid var(--line);border-radius:999px;
-    font-size:10.5px;font-weight:600;color:var(--text-2);max-width:100%;
+    font-size:13px;font-weight:600;color:var(--text-2);max-width:100%;
   }
   .dep-chip i{width:5px;height:5px;border-radius:50%;flex:none}
   .dep-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:126px}
   .dep-chip button{
     width:14px;height:14px;border:0;border-radius:50%;background:transparent;color:var(--muted-2);
-    cursor:pointer;font-size:9px;line-height:1;display:grid;place-items:center;padding:0;flex:none;
+    cursor:pointer;font-size:13px;line-height:1;display:grid;place-items:center;padding:0;flex:none;
   }
   .dep-chip button:hover{background:var(--danger-soft);color:var(--danger)}
-  .dep-add{height:25px;font-size:11px;color:var(--text-2);background:var(--surface-2);border-style:dashed}
+  .dep-add{height:25px;font-size:13px;color:var(--text-2);background:var(--surface-2);border-style:dashed}
   .dep-add:disabled{opacity:.6;cursor:not-allowed}
 
-  .empty{color:var(--muted-2);font-size:12px;text-align:center;padding:18px 6px;line-height:1.6}
+  .empty{color:var(--muted-2);font-size:13px;text-align:center;padding:18px 6px;line-height:1.6}
 
   /* ---------- right chart ---------- */
   .chartwrap{flex:1;min-width:0;display:flex;flex-direction:column}
@@ -389,11 +389,11 @@
     height:46px;display:flex;align-items:center;gap:14px;padding:0 14px;
     background:var(--surface);border-bottom:1px solid var(--line);flex:none;flex-wrap:nowrap;overflow-x:auto;
   }
-  .zoom{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);font-weight:600;white-space:nowrap}
+  .zoom{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);font-weight:600;white-space:nowrap}
   .zoom input[type=range]{width:104px;height:16px;accent-color:var(--accent);padding:0;border:0;background:transparent}
-  .chk{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--muted);font-weight:600;white-space:nowrap;cursor:pointer}
+  .chk{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--muted);font-weight:600;white-space:nowrap;cursor:pointer}
   .chk input{width:14px;height:14px;accent-color:var(--accent);cursor:pointer}
-  .chart-meta{font-size:11px;color:var(--muted-2);white-space:nowrap}
+  .chart-meta{font-size:13px;color:var(--muted-2);white-space:nowrap}
 
   .chart-area{
     flex:1;min-height:0;display:flex;margin:12px;background:var(--surface);
@@ -403,7 +403,7 @@
     flex:none;position:relative;overflow:hidden;background:var(--surface);z-index:2;touch-action:none;
   }
   .label-pane canvas{display:block}
-  .label-rows{position:absolute;left:0;top:70px;will-change:transform}
+  .label-rows{position:absolute;left:0;will-change:transform}
   .chart-scroll{
     flex:1;min-width:0;overflow:auto;background:var(--surface);position:relative;
   }
@@ -417,7 +417,7 @@
   /* ---------- tooltip ---------- */
   .tip{
     position:fixed;z-index:60;max-width:280px;background:var(--tip-bg);color:var(--tip-text);
-    border-radius:9px;padding:9px 11px;font-size:11.5px;line-height:1.65;
+    border-radius:9px;padding:9px 11px;font-size:13px;line-height:1.65;
     box-shadow:0 10px 30px -10px rgba(2,6,23,.55);pointer-events:none;opacity:0;
     transition:opacity .1s;white-space:pre-line;
   }
@@ -426,7 +426,7 @@
 
   .toast{
     position:fixed;left:50%;bottom:24px;transform:translate(-50%,10px);
-    background:var(--tip-bg);color:var(--tip-text);font-size:12.5px;padding:10px 16px;border-radius:10px;
+    background:var(--tip-bg);color:var(--tip-text);font-size:13px;padding:10px 16px;border-radius:10px;
     box-shadow:0 14px 34px -12px rgba(2,6,23,.6);opacity:0;pointer-events:none;
     transition:opacity .18s,transform .18s;z-index:80;
   }
@@ -468,8 +468,8 @@
   .lib-item:hover{background:var(--surface-2);border-color:var(--line)}
   .lib-item.current{background:var(--accent-soft);border-color:var(--accent-line)}
   .lib-main{flex:1;min-width:0}
-  .lib-name{font-weight:700;font-size:12.5px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .lib-meta{font-size:10.5px;color:var(--muted-2);margin-top:3px}
+  .lib-name{font-weight:700;font-size:13px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lib-meta{font-size:13px;color:var(--muted-2);margin-top:3px}
   .lib-actions{display:flex;gap:6px;flex:none}
 
   @media (max-width:1220px){
@@ -659,7 +659,7 @@
    1. 工具函式
    ========================================================= */
 const FONT = '"Microsoft JhengHei","PingFang TC","Noto Sans TC",system-ui,"Segoe UI",Arial,sans-serif';
-const COL = { labelW: 206, ownerW: 92, rowH: 26, headH: 70 };
+const COL = { labelW: 206, ownerW: 92, rowH: 26, headH: 80 };
 const STORAGE_KEY = 'gantt-studio-v1';
 const LIB_KEY = 'gantt-studio-library-v1';
 
@@ -1489,7 +1489,7 @@ const bodyLeft = L => L.labelW + L.ownerW;
 /* =========================================================
    4. 繪圖
    ========================================================= */
-const HEAD_MONTH = 24, HEAD_WEEK = 24;
+const HEAD_MONTH = 24, HEAD_WEEK = 32;
 
 /* 左上角：欄位標題 */
 function drawCorner(ctx, L, opts = {}) {
@@ -1501,12 +1501,13 @@ function drawCorner(ctx, L, opts = {}) {
   ctx.fillStyle = pal.surface3; ctx.fillRect(0, HEAD_MONTH, W, HEAD_WEEK);
 
   ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-  ctx.fillStyle = pal.muted; ctx.font = `700 11px ${FONT}`;
-  ctx.fillText('任務名稱', 13, H / 2 + 1);
-  ctx.fillText('負責人', L.labelW + 12, H / 2 + 1);
+  ctx.fillStyle = pal.muted; ctx.font = `700 13px ${FONT}`;
+  const weekCenter = HEAD_MONTH + HEAD_WEEK / 2;
+  ctx.fillText('任務名稱', 13, weekCenter);
+  ctx.fillText('負責人', L.labelW + 12, weekCenter);
   if (!opts.export) {
-    ctx.fillStyle = pal.muted2; ctx.font = `10px ${FONT}`;
-    ctx.fillText('拖曳長條可調整日期', 13, H / 2 + 16);
+    ctx.fillStyle = pal.muted2; ctx.font = `13px ${FONT}`;
+    ctx.fillText('拖曳長條可調整日期', 13, (HEAD_MONTH + HEAD_WEEK + H) / 2);
   }
 
   ctx.strokeStyle = pal.line; ctx.lineWidth = 1;
@@ -1543,12 +1544,13 @@ function drawHead(ctx, L, opts = {}) {
   ctx.fillStyle = pal.surface; ctx.fillRect(0, 0, W, H);
   ctx.fillStyle = pal.surface2; ctx.fillRect(0, 0, W, HEAD_MONTH);
   ctx.fillStyle = pal.surface3; ctx.fillRect(0, HEAD_MONTH, W, HEAD_WEEK);
+  ctx.textBaseline = 'middle';
 
   // 月份
   L.months.forEach(m => {
     const x = m.index * L.dayW, w = m.len * L.dayW;
     if (w >= 40) {
-      ctx.fillStyle = pal.text2; ctx.font = `600 11px ${FONT}`; ctx.textAlign = 'center';
+      ctx.fillStyle = pal.text2; ctx.font = `600 13px ${FONT}`; ctx.textAlign = 'center';
       ctx.fillText(w >= 96 ? m.label : m.short, x + w / 2, HEAD_MONTH / 2 + 1);
     }
     ctx.strokeStyle = pal.line; ctx.lineWidth = 1;
@@ -1560,14 +1562,14 @@ function drawHead(ctx, L, opts = {}) {
     const x = wk.index * L.dayW, w = 7 * L.dayW;
     if (wi % 2 === 1) { ctx.fillStyle = pal.rowStripe; ctx.fillRect(x, HEAD_MONTH, w, H - HEAD_MONTH); }
     ctx.textAlign = 'center';
-    if (w >= 46) {
-      ctx.fillStyle = pal.text; ctx.font = `700 10.5px ${FONT}`;
-      ctx.fillText(`第${wk.no}週`, x + w / 2, HEAD_MONTH + 9);
-      ctx.fillStyle = pal.muted2; ctx.font = `9.5px ${FONT}`;
-      ctx.fillText(wk.sub, x + w / 2, HEAD_MONTH + 20);
+    if (w >= 52) {
+      ctx.fillStyle = pal.text; ctx.font = `700 13px ${FONT}`;
+      ctx.fillText(`第${wk.no}週`, x + w / 2, HEAD_MONTH + 8);
+      ctx.fillStyle = pal.muted2; ctx.font = `13px ${FONT}`;
+      ctx.fillText(wk.sub, x + w / 2, HEAD_MONTH + 24);
     } else if (w >= 22) {
-      ctx.fillStyle = pal.muted; ctx.font = `9.5px ${FONT}`;
-      ctx.fillText(String(wk.no), x + w / 2, HEAD_MONTH + 15);
+      ctx.fillStyle = pal.muted; ctx.font = `13px ${FONT}`;
+      ctx.fillText(String(wk.no), x + w / 2, HEAD_MONTH + HEAD_WEEK / 2);
     }
     ctx.strokeStyle = pal.gridStrong; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(Math.round(x) + .5, HEAD_MONTH); ctx.lineTo(Math.round(x) + .5, H); ctx.stroke();
@@ -1575,8 +1577,8 @@ function drawHead(ctx, L, opts = {}) {
 
   // 日期（刻度太窄時僅由週次列顯示起始日）
   ctx.textAlign = 'center';
-  if (L.dayW >= 15) {
-    ctx.font = `10px ${FONT}`;
+  ctx.font = `13px ${FONT}`;
+  if (L.dayW >= ctx.measureText('00').width + 3) {
     for (let d = 0; d < L.days; d++) {
       const date = addDays(L.start, d);
       const cx = d * L.dayW + L.dayW / 2;
@@ -1631,10 +1633,10 @@ function drawLabels(ctx, L, opts = {}) {
     rr(ctx, 13, cy - 7, 3.5, 14, 2); ctx.fill();
 
     ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-    ctx.font = `600 12px ${FONT}`; ctx.fillStyle = pal.text;
+    ctx.font = `600 13px ${FONT}`; ctx.fillStyle = pal.text;
     ctx.fillText(fitText(ctx, t.name || '（未命名任務）', L.labelW - 34), 24, cy);
 
-    ctx.font = `11.5px ${FONT}`; ctx.fillStyle = t.owner ? pal.text2 : pal.muted3;
+    ctx.font = `13px ${FONT}`; ctx.fillStyle = t.owner ? pal.text2 : pal.muted3;
     ctx.fillText(fitText(ctx, t.owner || '—', L.ownerW - 20), L.labelW + 12, cy);
   });
   ctx.textAlign = 'left';
@@ -1701,7 +1703,7 @@ function drawBody(ctx, L, opts = {}) {
   drawLinks(ctx, L, opts);
 
   if (!tasks.length) {
-    ctx.fillStyle = pal.muted2; ctx.font = `12.5px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = pal.muted2; ctx.font = `13px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText('在左側新增任務，甘特圖會立即出現在這裡', Math.max(W / 2, 200), H / 2);
     ctx.textAlign = 'left';
     ctx.textBaseline = 'alphabetic';
@@ -1806,7 +1808,7 @@ function drawBar(ctx, L, t, i, cy, opts = {}) {
   // 起訖與工期
   const span = eIdx - sIdx + 1;
   const label = `${fmtMD(sd)}–${fmtMD(ed)} · ${span}天`;
-  ctx.font = `11px ${FONT}`; ctx.textBaseline = 'middle';
+  ctx.font = `13px ${FONT}`; ctx.textBaseline = 'middle';
   const tw = ctx.measureText(label).width;
   if (x + w + 8 + tw <= L.days * L.dayW - 6) {
     ctx.fillStyle = pal.muted; ctx.textAlign = 'left';
@@ -1848,6 +1850,7 @@ function render() {
   const inner = $('#chartInner');
   inner.style.width = timeW + 'px';
   $('#labelPane').style.width = leftW + 'px';
+  $('#labelRows').style.top = COL.headH + 'px';
 
   const paint = (cv, fn, opts) => {
     const c = cv.getContext('2d');
@@ -2411,7 +2414,7 @@ function renderSheet(orientation) {
   ctx.fillText(fitText(ctx, (state.project || '未命名專案').trim(), innerW), M, y + 20);
   y += 32;
 
-  ctx.font = `11px ${FONT}`;
+  ctx.font = `13px ${FONT}`;
   ctx.fillStyle = '#64748b';
   const meta = `專案開始 ${fmtDate(parseISO(state.start))}   |   期間 ${fmtDate(base.minDate)} – ${fmtDate(base.maxDate)}（${spanWeeks(base)} 週）   |   任務 ${n} 項`;
   ctx.fillText(fitText(ctx, meta, innerW), M, y + 9);
@@ -2432,14 +2435,15 @@ function renderSheet(orientation) {
 
   // ---- 備註區 ----
   const noteTasks = state.tasks.filter(t => (t.note || '').trim());
-  ctx.font = `10.5px ${FONT}`;
+  ctx.font = `13px ${FONT}`;
   const noteLines = [];
   noteTasks.forEach(t => {
     wrapText(ctx, `• ${t.name || '未命名任務'}：${String(t.note).trim()}`, innerW - 4, 2)
       .forEach(line => noteLines.push(line));
   });
   const hasLinks = state.tasks.some(t => (t.deps || []).length);
-  const notesReserve = (noteLines.length ? 18 + noteLines.length * 13 + 12 : 0) + (hasLinks ? 20 : 0);
+  const noteLineHeight = 17;
+  const notesReserve = (noteLines.length ? 18 + noteLines.length * noteLineHeight + 12 : 0) + (hasLinks ? 20 : 0);
 
   const footerH = 34;
   const availH = Math.max(120, DH - M - footerH - y - notesReserve);
@@ -2475,7 +2479,7 @@ function renderSheet(orientation) {
   if (hasLinks) {
     y += 16;
     ctx.fillStyle = '#64748b';
-    ctx.font = `10px ${FONT}`;
+    ctx.font = `13px ${FONT}`;
     ctx.textAlign = 'left';
     ctx.fillText('→ 箭頭表示任務先後順序：前置任務完成後，後續任務才開始。', M, y);
   }
@@ -2484,13 +2488,13 @@ function renderSheet(orientation) {
   if (noteLines.length) {
     y += 22;
     ctx.fillStyle = '#0f172a';
-    ctx.font = `700 10.5px ${FONT}`;
+    ctx.font = `700 13px ${FONT}`;
     ctx.fillText('備註 / 資源限制', M, y);
     y += 5;
     ctx.fillStyle = '#475569';
-    ctx.font = `10.5px ${FONT}`;
+    ctx.font = `13px ${FONT}`;
     noteLines.forEach(line => {
-      y += 13;
+      y += noteLineHeight;
       ctx.fillText(line, M, y);
     });
   }
@@ -2500,7 +2504,7 @@ function renderSheet(orientation) {
   ctx.strokeStyle = '#e2e8f0';
   ctx.beginPath(); ctx.moveTo(M, fy - 18.5); ctx.lineTo(DW - M, fy - 18.5); ctx.stroke();
   ctx.fillStyle = '#94a3b8';
-  ctx.font = `9.5px ${FONT}`;
+  ctx.font = `13px ${FONT}`;
   ctx.textAlign = 'left';
   ctx.fillText('專案甘特圖 · Gantt Studio', M, fy - 4);
   ctx.textAlign = 'right';
